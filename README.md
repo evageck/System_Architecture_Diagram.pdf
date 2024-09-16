@@ -39,7 +39,27 @@ The objective of the configuration proccess of setting up the network system is 
 ###8. Add mobile devices
 - Since WAP is present and connected to switch, personal/moible devices can be added to the network. We will connect a tablet, laptop, and mobile phone. IP ADDRESSES???!?!?!?!?!?
 
-###9. Set IP addresses on 
-  
+###9. Set IP addresses on end devices (mobile device help)
+- In our LAN with three PCs, the IP addresses will be 192.168.0.2, 192.168.0.3, and 192.168.0.4. Since this LAN is Class C the default subnet mask will be 255.255.0.0. The other LAN with three servers will be 172.16.0.2, 172.16.0.3, and 172.16.0.4 and the subnet mask will be 255.255.255.0.
 
+###10. Add a router to talk to different networks
+- Adding a router to connect the two seperate local area networks will allow them to be able to communicate with each other and share data.
+
+###11. Connect the switches to router using ethernat cables
+- To enable the router to do its job, both switches must be connected to the router using ethernet cables.
+
+###12. Configure IPs on a router
+- Configuring the IP addresses on a router to the default gatway of each LAN is imperative for network communication.
+- If a decive on one LAN wants to communicate to a device on another LAN, it sends the data to its default gateway which will now be the router since the IP addresses have been configured.
+- Therefore; the router will have have two IP addresses and subnet masks entered since there are two switches connected by ethernet cables.
+- The IP address will be 192.168.0.1 which is the default gateway of out first LAN.
+- The next IP address will be 172.16.0.1 which is the default gateway of our second LAN.
   
+###13. Set port status to ON on router. what this mean???
+
+###14. Set default gateway on all end devices hosts.
+- Default gateway for a LAN should be the first avilable IP in the network.
+- Default gateway for first LAN with three PCs will be 192.168.0.1.
+- Default gateway for second LAN with three servers will be 172.16.0.1.
+- mobile devices default gateway????
+
