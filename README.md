@@ -21,12 +21,13 @@
 - The set up will require Apple Mac computers and the software MAMP, NAMO, TextEdit and have access to the mac operating system Terminal. 
 
 
-### 2. IP assignments
+### 2. Assign LAN IP addresses
 
-  - The LAN will use the IP address range of `192.168.0.0/26` which is Class C since it supports a smaller network and that is all we need for this set up. A subnetwork (subnet) defines the specicifc segment of our network and gives us a ranage of 64 IP addresses. The number 64 comes from an IPv4 IP address which is 32 bits long and the /26 represents bits reserved for the network portion so the leftover 6 bits available are used for available host addresses (32-26=6). The number of avialble IP addresses for hosts is determined by the 6 bits which we take the number two and sqare it by 6 and 2^6 = 64 addresses in total. The subnet mask is `255.255.255.192` for this IP address since this is how the binary form of the subnet trasnlates into decimal. The first usable address is `192.168.0.1` and is reserved as our default gateway.
-  - A second LAN will be using the IP address range of `176.16.0.0/24` is a Class B address since it supports a larger network. Our subnet gives us a range of 256 usabke IP addresses since we take the 32-24=8 bits usable for hosts addresses then 2^8=256. Our subnet mask is 255.255.255.0 because this is the decimal from of the /24 subnet. 
+  - The LAN that I will describe the set up for will use the IP address range of `192.168.0.0/26` which is Class C since it supports a smaller network and that is all we need for this set up. A subnetwork (subnet) defines the specicifc segment of our network and gives us a ranage of 64 IP addresses. The number 64 comes from an IPv4 IP address which is 32 bits long and the /26 represents bits reserved for the network portion so the leftover 6 bits available are used for available host addresses (32-26=6). The number of avialble IP addresses for hosts is determined by the 6 bits which we take the number two and sqare it by 6 and 2^6 = 64 addresses in total. The subnet mask is `255.255.255.192` for this IP address since this is how the binary form of the subnet trasnlates into decimal. The first usable address is `192.168.0.1` and is reserved as our default gateway which is the device that acts as an acceess point for a network to communicate with devices or networks outside of its own LAN which in our case will be a router. All devices on the LAN will need to have this default gateway set into its configuration.
+  - There is a second LAN will be using the IP address range of `176.16.0.0/24` is a Class B address since it supports a larger network. Our subnet gives us a range of 256 usabke IP addresses since we take the 32-24=8 bits usable for hosts addresses then 2^8=256. Our subnet mask is 255.255.255.0 because this is the decimal from of the /24 subnet. The default gateway IP will be 176.16.0.1 which will be input into router and all devices on the LAN.
  
-### 3. Add end devices 
+### 3. Connect end devices to switch
+- We will have two MAC computers that we connect to the switch using ethernet cables in ports next to each other.
 - In the LAN done within the IP address range `192.168.0.0/26` we set up two mac books and assigned the IP addresses `192.168.
 
 ### 4. Add switch 
