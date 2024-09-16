@@ -1,7 +1,7 @@
 #Step-by-Step Configuration Guide 
 
 ##Objective 
-The objective of the configuration proccess of setting up the network system is to allow two seperate local area networks (LANs) to communicate with each other through a router
+- The objective of the configuration proccess of setting up the network system is to allow two seperate local area networks (LANs) to communicate with each other through a router
 
 ##Use Cases
 - A corporation needs to create a network to connect the in-office departmental LAN with the guest/extended LAN.
@@ -10,7 +10,6 @@ The objective of the configuration proccess of setting up the network system is 
   This will allow for students in their dorms to access online academic platforms and administration to update grades from their offices or even remotely.
 
   ##System Setup Steps
-
   ###1. Chose the software and hardware
 - The first LAN will be using three PCs and the second LAN will need 3 servers. We will also need two switches, a router, and ethernet cables.
 - It is also needed to have a wireless access point (WAP) and an ethernet cable as well.
@@ -50,7 +49,7 @@ The objective of the configuration proccess of setting up the network system is 
 
 ###12. Configure IPs on a router
 - Configuring the IP addresses on a router to the default gatway of each LAN is imperative for network communication.
-- If a decive on one LAN wants to communicate to a device on another LAN, it sends the data to its default gateway which will now be the router since the IP addresses have been configured.
+- If a device on one LAN wants to communicate to a device on another LAN, it sends the data to its default gateway which will now be the router since the IP addresses have been configured.
 - Therefore; the router will have have two IP addresses and subnet masks entered since there are two switches connected by ethernet cables.
 - The IP address will be 192.168.0.1 which is the default gateway of out first LAN.
 - The next IP address will be 172.16.0.1 which is the default gateway of our second LAN.
@@ -62,4 +61,26 @@ The objective of the configuration proccess of setting up the network system is 
 - Default gateway for first LAN with three PCs will be 192.168.0.1.
 - Default gateway for second LAN with three servers will be 172.16.0.1.
 - mobile devices default gateway????
+
+
+
+#FAQ
+## 1. Question: What to do if within a LAN, one PC can not communicate with another?
+**Answers** 
+- It is important to check and make sure all PCs have their IP addresses and subnet masks entered. The PCs communicate through pinging the IP address of another so if this does not work then there is a good chance an IP address is missing.
+- There could also be a typo in one of the input IP addresses or subnet masks.
+- It is important to also make sure that the ethernet cables that are connecting the PCs to the switch are fully plugged in and correctly working 
+## 2. Question: What if my PC on one LAN can not communicate with the server on the other LAN?
+**Answers**
+- Either the PC or the server is missing their needed default gateway. When the PC wants to communcate with the server in another LAN, it is sent to the default gateway (the router's IP on the same LAN as the PC). The router then forwards it to the appropriate server, with the IP address that was specified by the PC. So if there is a missing default gateway the message will not make it to the intended server.
+- The router could be missing one of the default gateways from either LAN. Rememeber, the router holds the default gateway of both LANs in order to allow them to communicate so if one is missing it will not work.
+- Make sure all ethernet cables are fully connected and working.
+## 3. Question: What if my network system can not reach a web server connected through the router?
+**Answers**
+- Ensure all firewalls on devices and router are disabled. Firewalls can disable web traffic to temporarily diabling these can fix the problem.
+- Verify that the web server is running and its IP address is correct.
+## 4. Question: What do I do when my router has stopped the communication between the networks even though all numbers are input correct?
+
+
+
 
