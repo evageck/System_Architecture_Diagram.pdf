@@ -23,11 +23,11 @@
 
 ### 2. IP assignments
 
-  - The LAN will use the IP address range of `192.168.0.0/26` which is Class C since it supports a smaller network and that is all we need for this set up. A subnetwork (subnet) defines the specicifc segment of our network and gives us a ranage of 64 IP addresses. The number 64 comes from an IPv4 IP address which is 32 bits long and the /26 represents bits reserved for the network portion so the leftover 6 bits available are used for available host addresses (32-26=6). The number of avialble IP addresses for hosts is determined by the 6 bits which we take the number two and sqare it by 6 and 2^6 = 64 addresses in total. The subnet mask is `255.255.255.192` for this IP address since this is how the binary form of the subnet trasnlates into decimal. 
-  - A second LAN will be using the IP address range of `176.16.0.0/24` is a Class B address since it supports a larger network. 
+  - The LAN will use the IP address range of `192.168.0.0/26` which is Class C since it supports a smaller network and that is all we need for this set up. A subnetwork (subnet) defines the specicifc segment of our network and gives us a ranage of 64 IP addresses. The number 64 comes from an IPv4 IP address which is 32 bits long and the /26 represents bits reserved for the network portion so the leftover 6 bits available are used for available host addresses (32-26=6). The number of avialble IP addresses for hosts is determined by the 6 bits which we take the number two and sqare it by 6 and 2^6 = 64 addresses in total. The subnet mask is `255.255.255.192` for this IP address since this is how the binary form of the subnet trasnlates into decimal. The first usable address is `192.168.0.1` and is reserved as our default gateway.
+  - A second LAN will be using the IP address range of `176.16.0.0/24` is a Class B address since it supports a larger network. Our subnet gives us a range of 256 usabke IP addresses since we take the 32-24=8 bits usable for hosts addresses then 2^8=256. Our subnet mask is 255.255.255.0 because this is the decimal from of the /24 subnet. 
  
 ### 3. Add end devices 
-- Next, the three PCs must be taken out for the the first LAN and then the 3 servers for the second LAN we will set up.
+- In the LAN done within the IP address range `192.168.0.0/26` we set up two mac books and assigned the IP addresses `192.168.
 
 ### 4. Add switch 
 - Then take out two switches for each local area network.
