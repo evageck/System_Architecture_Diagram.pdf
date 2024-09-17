@@ -46,11 +46,16 @@ In the MAC1 search bar look up the Terminal application and enter "Ping 192.168.
 - Now we will create an index.html in the directory of our operating system. Since macOS is our operating system we will go into Applications, click MAMP, click htdocs, then index.html.
 - Next, open the TextEdit application and input "Welcome to Capstone Consulting02"
 
-### 10. Add a router to talk to different networks
-- Adding a router to connect the two seperate local area networks will allow them to be able to communicate with each other and share data.
+### Set up the Network DNS Server Requirments 
+- In our MAC2, open and start the NAMO application. Create a new Host record for capstoneconsulting02.com. Click the + to add a new host and put in capstoneconsulting02.com. Then set the IP address to `192.168.0.3` since that is the IP address of MAC2 which is designated as the DNS server and hit save.
+  
+### Download driver for a serial adapter
+- Download the applicaition "driver"
 
 ### 11. Connect the switches to router using ethernat cables
+- Adding a router to connect the two seperate local area networks will allow them to be able to communicate with each other and share data.
 - To enable the router to do its job, both switches must be connected to the router using ethernet cables.
+- Then connect a serial console cable from the router to the MAC2. 
 
 ### 12. Configure IPs on a router
 - Configuring the IP addresses on a router to the default gatway of each LAN is imperative for network communication.
@@ -59,7 +64,7 @@ In the MAC1 search bar look up the Terminal application and enter "Ping 192.168.
 - The IP address will be 192.168.0.1 which is the default gateway of out first LAN.
 - The next IP address will be 172.16.0.1 which is the default gateway of our second LAN.
   
-### 13. Set port status to ON on router. what this mean???
+### 13. Set port status to ON on router. 
 
 ### 14. Set default gateway on all end devices hosts.
 - Default gateway for a LAN should be the first avilable IP in the network.
