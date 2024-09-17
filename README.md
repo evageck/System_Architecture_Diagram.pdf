@@ -47,6 +47,7 @@ In the MAC1 search bar look up the Terminal application and enter "Ping 192.168.
 
 ### Set up the Network DNS Server Requirments 
 - In our MAC2, open and start the NAMO application. Create a new Host record for capstoneconsulting02.com. Click the + to add a new host and put in capstoneconsulting02.com. Then set the IP address to `192.168.0.3` since that is the IP address of MAC2 which is designated as the DNS server and hit save.
+- Now go into Web server and change setting to put in DNS IP
 
 ### 11. Connect the switches to router using ethernat cables
 - Download the application "driver".
