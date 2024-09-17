@@ -77,21 +77,15 @@ In the MAC1 search bar look up the Terminal application and enter "Ping 192.168.
 - "description ##switch 01"
 - "no shut"
 - then enter "exit" and then "wr" to write it into memory
-- To check that our IP addresses have been configured, type and enter "show ip interface brief" and it should look similar to
+- To check that our IP addresses have been configured, type and enter "show ip interface brief" and it should look similar to this image but the numbers should be 0/0 and 0/1 instead of 0/0/0 and 0/0/1"
 
-
-### 14. Set default gateway on all end devices hosts.
-- Default gateway for a LAN should be the first avilable IP in the network.
-- Default gateway for first LAN with three PCs will be 192.168.0.1.
-- Default gateway for second LAN with three servers will be 172.16.0.1.
-- mobile devices default gateway????
+  <img width="390" alt="Screenshot 2024-09-17 at 10 54 34 AM" src="https://github.com/user-attachments/assets/34ca4122-ea6a-4e2d-a207-d0fbdec0164e">
 
 
 
 # FAQ
 
-## 1. Question: What to do if within a LAN, one PC can not communicate with another?<img width="486" alt="Screenshot 2024-09-16 at 8 22 31 PM" src="https://github.com/user-attachments/assets/dab7f5da-0939-4099-9a3e-18fb8f0438c3">
-
+## 1. Question: What to do if within a LAN, one PC can not communicate with another?
 **Answers** 
 - It is important to check and make sure all PCs have their IP addresses and subnet masks entered. The PCs communicate through pinging the IP address of another so if this does not work then there is a good chance an IP address is missing.
 - There could also be a typo in one of the input IP addresses or subnet masks.
@@ -105,7 +99,12 @@ In the MAC1 search bar look up the Terminal application and enter "Ping 192.168.
 **Answers**
 - Ensure all firewalls on devices and router are disabled. Firewalls can disable web traffic to temporarily diabling these can fix the problem.
 - Verify that the web server is running and its IP address is correct.
-## 4. Question: What do I do when my router has stopped the communication between the networks even though all numbers are input correct?
+## 4. Question: What do I do when my router has stopped the communication between the networks even though my router is turned on?
+**Answers**
+- Try turning on off the router and turning it back on. Once back on, give it a couple minutes to fully reboot.
+- Make sure the IP addresses and subnet masks are correcly entered into the router. You can check using the "show ip interface brief" in terminal. If needed to go back into and fix, type and enter these commands: router>enable, configure terminal, interface GigabitEthernet 0/0 (if that is the IP that needs to be changed).
+- Now it is time to remove what is wrong so type in "no ip address" then the address that needs to be changed and enter. Then type "ip address" with the correct numbers.
+- Type and enter "no shutdown", "exit", then "wr" to write the correct IP into memory 
 
 
 
