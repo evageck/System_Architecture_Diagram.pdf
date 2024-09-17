@@ -33,17 +33,10 @@
 
 ### 4. Configure devices on LAN 
 - The first device we will call MAC1 and will also act as our Web Server for this set up. A web server stores and provides website content when requested by browsers. HTTPS is Hypertext Transfer Protocal Secure which is used for transmitting data such as web pages between client and server. MAC1 will be the web servr that served website content when a browser requests HTTP/HTTPS content. Go to the System Settings, Network, and select the USB 10/100/1000 LAN in "Other Services." Next, go to the "TCP/IP" tab and in the "Configure IPv4" area select the "Using DHCP" and change it to the "Manually" option. Enter `192.168.0.2` and the subnet mask `255.255.255.192`. Now go to the DNS tab and delete any servers that may be listed already and in the DNS Servers area input `10.96.8.66` as this will be the DNS server we configure next.
-- The second device we will call MAC2 and will act as our DNS server. A Domaine Name Server (DNS) will translate human-friendly domains into IP addresses and vice verse. This allows for clients to search easy to remember and type website names instead of a long IP address. Go 
+- The second device we will call MAC2 and will act as our DNS server. A Domaine Name Server (DNS) will translate human-friendly domains into IP addresses and vice verse. This allows for clients to search easy to remember and type website names instead of a long IP address. Go to System Settings, then Network, then "Configure IPv4" and select "Manually" and input the IP address `192.168.0.3` and the Subnet mask `255.255.255.0`. 
 
-### 6. Add wireless access point (WAP)
-- A WAP is a wireless device that allows wireless devices to connect to a wired network such as our LAN with PCs.
-### 7. Connect WAP to a switch 
-- Using an ethenet cable, connect our switch to the WAP.
-
-
-
-### 9. Set IP addresses on end devices (mobile device help)
-- In our LAN with three PCs, the IP addresses will be 192.168.0.2, 192.168.0.3, and 192.168.0.4. Since this LAN is Class C the default subnet mask will be 255.255.0.0. The other LAN with three servers will be 172.16.0.2, 172.16.0.3, and 172.16.0.4 and the subnet mask will be 255.255.255.0.
+### Ensure both MACs can communicate with each other successfuly
+In the mac search bar look up the Terminal application and MAC1 should enter "Ping 192.168.0.3" and in the Terminal application for MAC2, enter "Ping 192.168.0.2". For this to be successful it will say there was a Reply from the IP address and a 0% loss.
 
 ### 10. Add a router to talk to different networks
 - Adding a router to connect the two seperate local area networks will allow them to be able to communicate with each other and share data.
