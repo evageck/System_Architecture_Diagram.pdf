@@ -66,6 +66,7 @@ In the MAC1 search bar look up the Terminal application and enter "Ping 192.168.
   
 ### 13. Set port status to ON on router. 
 
+
 ### 14. Set default gateway on all end devices hosts.
 - Default gateway for a LAN should be the first avilable IP in the network.
 - Default gateway for first LAN with three PCs will be 192.168.0.1.
@@ -76,7 +77,8 @@ In the MAC1 search bar look up the Terminal application and enter "Ping 192.168.
 
 # FAQ
 
-## 1. Question: What to do if within a LAN, one PC can not communicate with another?
+## 1. Question: What to do if within a LAN, one PC can not communicate with another?<img width="486" alt="Screenshot 2024-09-16 at 8 22 31 PM" src="https://github.com/user-attachments/assets/dab7f5da-0939-4099-9a3e-18fb8f0438c3">
+
 **Answers** 
 - It is important to check and make sure all PCs have their IP addresses and subnet masks entered. The PCs communicate through pinging the IP address of another so if this does not work then there is a good chance an IP address is missing.
 - There could also be a typo in one of the input IP addresses or subnet masks.
