@@ -20,7 +20,6 @@
 - Any personal and mobile devices that will want to be added to the network wirelessly should also be chosen. For example, a tablet, smartphone, laptop will be used. 
 - The set up will require Apple Mac computers and the software MAMP, NAMO, TextEdit and have access to the mac operating system Terminal. 
 
-
 ### 2. Assign LAN IP addresses
 
   - The LAN that I will describe the set up for will use the IP address range of `192.168.0.0/26` which is Class C since it supports a smaller network and that is all we need for this set up. A subnetwork (subnet) defines the specicifc segment of our network and gives us a ranage of 64 IP addresses. The number 64 comes from an IPv4 IP address which is 32 bits long and the /26 represents bits reserved for the network portion so the leftover 6 bits available are used for available host addresses (32-26=6). The number of avialble IP addresses for hosts is determined by the 6 bits which we take the number two and sqare it by 6 and 2^6 = 64 addresses in total. The subnet mask is `255.255.255.192` for this IP address since this is how the binary form of the subnet trasnlates into decimal. The first usable address is `192.168.0.1` and is reserved as our default gateway which is the device that acts as an acceess point for a network to communicate with devices or networks outside of its own LAN which in our case will be a router. All devices on the LAN will need to have this default gateway set into its configuration.
@@ -81,7 +80,10 @@ In the MAC1 search bar look up the Terminal application and enter "Ping 192.168.
 
   <img width="390" alt="Screenshot 2024-09-17 at 10 54 34 AM" src="https://github.com/user-attachments/assets/34ca4122-ea6a-4e2d-a207-d0fbdec0164e">
 
-
+### Ping the other LAN we are connected to throught the router
+- Since our router is set up with both LAN default gateways, we can ping the other LAN.
+- In terminal, type "172.16.0.2" which is one of IP addresses of the other LAN devices.
+- 
 
 # FAQ
 
