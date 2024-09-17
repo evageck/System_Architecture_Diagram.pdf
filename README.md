@@ -48,23 +48,36 @@ In the MAC1 search bar look up the Terminal application and enter "Ping 192.168.
 
 ### Set up the Network DNS Server Requirments 
 - In our MAC2, open and start the NAMO application. Create a new Host record for capstoneconsulting02.com. Click the + to add a new host and put in capstoneconsulting02.com. Then set the IP address to `192.168.0.3` since that is the IP address of MAC2 which is designated as the DNS server and hit save.
-  
-### Download driver for a serial adapter
-- Download the applicaition "driver"
 
 ### 11. Connect the switches to router using ethernat cables
+- Download the application "driver".
+- Turn on physically the router.
 - Adding a router to connect the two seperate local area networks will allow them to be able to communicate with each other and share data.
 - To enable the router to do its job, both switches must be connected to the router using ethernet cables.
 - Then connect a serial console cable from the router to the MAC2. 
 
 ### 12. Configure IPs on a router
 - Configuring the IP addresses on a router to the default gatway of each LAN is imperative for network communication.
-- If a device on one LAN wants to communicate to a device on another LAN, it sends the data to its default gateway which will now be the router since the IP addresses have been configured.
-- Therefore; the router will have have two IP addresses and subnet masks entered since there are two switches connected by ethernet cables.
-- The IP address will be 192.168.0.1 which is the default gateway of out first LAN.
-- The next IP address will be 172.16.0.1 which is the default gateway of our second LAN.
-  
-### 13. Set port status to ON on router. 
+- There will be two addresses input and the first IP address will be 192.168.0.1 with the subnet mask 255.255.255.192 which is the default gateway of out first LAN and the next IP address will be 172.16.0.1 with the subnet mask 255.255.0.0 which is the default gateway of our second LAN.
+- Now that MAC2 has the serial console cable plugged in, it can configure the IPs and turn the port status. Do not include the quote marks in the terminal code, it is there to seperate code from explanation.
+- Type "router enable" to enter EXEC mode to make changes. The first thing that soulg now pop up is Router#
+- Type after Router#, "configure terminal", hit enter
+- then type "hostname router01", and hit enter
+- now type "interface gigabitEthernet 0/0", enter
+- then "ip address 192.168.0.1 255.255.255.192", enter
+- then type "description ##to switch 01##", hit enter. This is to describe the connection we are creating from router to switch.
+- then Type "no shutdown"
+- Then type "exit"
+- Then type "wr" to write the configuration into memory.
+- to confirm config was permanantly saved, type and enter "show startup-config"
+- Now we will do the same process for the other LAN's IP address but now using shortcuts.
+- Tyoe "config t", which is a shortcut to what we typed earlier
+- now type "int g0/1", enter
+- "ip add 172.16.0.1 255.255.0.0", enter
+- "description ##switch 01"
+- "no shut"
+- then enter "exit" and then "wr" to write it into memory
+- To check that our IP addresses have been configured, type and enter "show ip interface brief" and it should look similar to
 
 
 ### 14. Set default gateway on all end devices hosts.
