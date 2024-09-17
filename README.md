@@ -36,7 +36,15 @@
 - The second device we will call MAC2 and will act as our DNS server. A Domaine Name Server (DNS) will translate human-friendly domains into IP addresses and vice verse. This allows for clients to search easy to remember and type website names instead of a long IP address. Go to System Settings, then Network, then "Configure IPv4" and select "Manually" and input the IP address `192.168.0.3` and the Subnet mask `255.255.255.0`. 
 
 ### Ensure both MACs can communicate with each other successfuly
-In the mac search bar look up the Terminal application and MAC1 should enter "Ping 192.168.0.3" and in the Terminal application for MAC2, enter "Ping 192.168.0.2". For this to be successful it will say there was a Reply from the IP address and a 0% loss.
+In the MAC1 search bar look up the Terminal application and enter "Ping 192.168.0.3" and in the Terminal application for MAC2, enter "ping 192.168.0.2". For this to be successful it will say there was a Reply from the IP address and a 0% loss. If the Reply from IP address message will not stop hit control then c buttons on keyboard.
+
+<img width="31" alt="Screenshot 2024-09-16 at 6 17 27 PM" src="https://github.com/user-attachments/assets/fd743e3d-004a-4050-b3a7-d0cda428e6a0">
+<img width="272" alt="Screenshot 2024-09-16 at 6 17 38 PM" src="https://github.com/user-attachments/assets/be04d64c-4b4e-4fc3-9b89-0bcb4dc56d33">
+
+### Set up Network Web Server Requirements
+- For MAC1, open the MAMP applications folder, Seelect Nginx as the Web server. Now go into preferences and select Ports then edit both the Nginx Port and Apache Port to 80 then click OK. Then start the web server by clicking the start button. It may already say stop in that area which means it is already running. Just to be sure, click Stop then Start again.
+- Now we will create an index.html in the directory of our operating system. Since macOS is our operating system we will go into Applications, click MAMP, click htdocs, then index.html.
+- Next, open the TextEdit application and input "Welcome to Capstone Consulting02"
 
 ### 10. Add a router to talk to different networks
 - Adding a router to connect the two seperate local area networks will allow them to be able to communicate with each other and share data.
