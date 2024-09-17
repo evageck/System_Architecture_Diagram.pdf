@@ -56,7 +56,7 @@ In the MAC1 search bar look up the Terminal application and enter "Ping 192.168.
 - To enable the router to do its job, both switches must be connected to the router using ethernet cables.
 - Then connect a serial console cable from the router to the MAC2. 
 
-### 12. Configure IPs on a router
+### 12. Configure IPs on a router and turn port status on
 - Configuring the IP addresses on a router to the default gatway of each LAN is imperative for network communication.
 - There will be two addresses input and the first IP address will be 192.168.0.1 with the subnet mask 255.255.255.192 which is the default gateway of out first LAN and the next IP address will be 172.16.0.1 with the subnet mask 255.255.0.0 which is the default gateway of our second LAN.
 - Now that MAC2 has the serial console cable plugged in, it can configure the IPs and turn the port status. Do not include the quote marks in the terminal code, it is there to seperate code from explanation.
