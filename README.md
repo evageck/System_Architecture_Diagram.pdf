@@ -24,26 +24,23 @@
 ### 2. Assign LAN IP addresses
 
   - The LAN that I will describe the set up for will use the IP address range of `192.168.0.0/26` which is Class C since it supports a smaller network and that is all we need for this set up. A subnetwork (subnet) defines the specicifc segment of our network and gives us a ranage of 64 IP addresses. The number 64 comes from an IPv4 IP address which is 32 bits long and the /26 represents bits reserved for the network portion so the leftover 6 bits available are used for available host addresses (32-26=6). The number of avialble IP addresses for hosts is determined by the 6 bits which we take the number two and sqare it by 6 and 2^6 = 64 addresses in total. The subnet mask is `255.255.255.192` for this IP address since this is how the binary form of the subnet trasnlates into decimal. The first usable address is `192.168.0.1` and is reserved as our default gateway which is the device that acts as an acceess point for a network to communicate with devices or networks outside of its own LAN which in our case will be a router. All devices on the LAN will need to have this default gateway set into its configuration.
-  - There is a second LAN will be using the IP address range of `176.16.0.0/24` is a Class B address since it supports a larger network. Our subnet gives us a range of 256 usabke IP addresses since we take the 32-24=8 bits usable for hosts addresses then 2^8=256. Our subnet mask is 255.255.255.0 because this is the decimal from of the /24 subnet. The default gateway IP will be 176.16.0.1 which will be input into router and all devices on the LAN.
+  - There is a second LAN will be using the IP address range of `176.16.0.0/24` is a Class B address since it supports a larger network. Our subnet gives us a range of 256 usabke IP addresses since we take the 32-24=8 bits usable for hosts addresses then 2^8=256. Our subnet mask is `255.255.255.0` because this is the decimal from of the /24 subnet. The default gateway IP will be 176.16.0.1 which will be input into router and all devices on the LAN.
  
 ### 3. Connect end devices to switch
 - We will have two MAC computers that we connect to the switch using ethernet cables in ports next to each other.
-- In the LAN done within the IP address range `192.168.0.0/26` we set up two mac books and assigned the IP addresses `192.168.
+- As shown there are 2 rectangle areas with 12 ports in each one, either rectangle is fine but insert ethernet cables in ports next to each other.
+<img width="471" alt="Screenshot 2024-09-16 at 4 53 12 PM" src="https://github.com/user-attachments/assets/b6f33abd-cacf-4a06-b9fa-b2207a974901">
 
-### 4. Add switch 
-- Then take out two switches for each local area network.
-
-### 5. Connect end devices to the switch with ethernet cables
-- Take the LAN with three PCs and connect each PC with an ethernet cables to the switch in ports next to each other.
+### 4. Configure devices on LAN 
+- The first device we will call MAC1 and will also act as our Web Server for this set up. A web server stores and provides website content when requested by browsers. HTTPS is Hypertext Transfer Protocal Secure which is used for transmitting data such as web pages between client and server. MAC1 will be the web servr that served website content when a browser requests HTTP/HTTPS content. Go to the System Settings, Network, and select the USB 10/100/1000 LAN in "Other Services." Next, go to the "TCP/IP" tab and in the "Configure IPv4" area select the "Using DHCP" and change it to the "Manually" option. Enter `192.168.0.2` and the subnet mask `255.255.255.192`. Now go to the DNS tab and delete any servers that may be listed already and in the DNS Servers area input `10.96.8.66` as this will be the DNS server we configure next.
+- The second device we will call MAC2 and will act as our DNS server. A Domaine Name Server (DNS) will translate human-friendly domains into IP addresses and vice verse. This allows for clients to search easy to remember and type website names instead of a long IP address. Go 
 
 ### 6. Add wireless access point (WAP)
 - A WAP is a wireless device that allows wireless devices to connect to a wired network such as our LAN with PCs.
-
 ### 7. Connect WAP to a switch 
 - Using an ethenet cable, connect our switch to the WAP.
 
-### 8. Add mobile devices
-- Since WAP is present and connected to switch, personal/moible devices can be added to the network. We will connect a tablet, laptop, and mobile phone. IP ADDRESSES???!?!?!?!?!?
+
 
 ### 9. Set IP addresses on end devices (mobile device help)
 - In our LAN with three PCs, the IP addresses will be 192.168.0.2, 192.168.0.3, and 192.168.0.4. Since this LAN is Class C the default subnet mask will be 255.255.0.0. The other LAN with three servers will be 172.16.0.2, 172.16.0.3, and 172.16.0.4 and the subnet mask will be 255.255.255.0.
