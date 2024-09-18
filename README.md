@@ -101,7 +101,7 @@ In the MAC1 search bar look up the Terminal application and enter "Ping 192.168.
 - It is important to check and make sure all PCs have their IP addresses and subnet masks entered. The PCs communicate through pinging the IP address of another so if this does not work then there is a good chance an IP address is missing.
 - There could also be a typo in one of the input IP addresses or subnet masks.
 - It is important to also make sure that the ethernet cables that are connecting the PCs to the switch are fully plugged in and correctly working 
-## 2. Question: What if my PC on one LAN can not communicate with the server on the other LAN?
+## 2. Question: What if a device on one LAN can not communicate with the server on the other LAN?
 **Answers**
 - Either the PC or the server is missing their needed default gateway. When the PC wants to communcate with the server in another LAN, it is sent to the default gateway (the router's IP on the same LAN as the PC). The router then forwards it to the appropriate server, with the IP address that was specified by the PC. So if there is a missing default gateway the message will not make it to the intended server.
 - The router could be missing one of the default gateways from either LAN. Rememeber, the router holds the default gateway of both LANs in order to allow them to communicate so if one is missing it will not work.
@@ -116,7 +116,10 @@ In the MAC1 search bar look up the Terminal application and enter "Ping 192.168.
 - Make sure the IP addresses and subnet masks are correcly entered into the router. You can check using the "show ip interface brief" in terminal. If needed to go back into and fix, type and enter these commands: router>enable, configure terminal, interface GigabitEthernet 0/0 (if that is the IP that needs to be changed).
 - Now it is time to remove what is wrong so type in "no ip address" then the address that needs to be changed and enter. Then type "ip address" with the correct numbers.
 - Type and enter "no shutdown", "exit", then "wr" to write the correct IP into memory 
-
+## 5. Question: What do I do if the domain name for my web page does not direct me to the web page?
+**Answers** 
+- Double check that the MAMP DNS server was created using the IP address of the web server device that created the wep page.
+- Make sure that the web server device has the DNS server configured in their system settings. Their should be only one server under DNS Servers that holds the IP address of the MAC2 which is the designated DNS server. 
 
 
 
