@@ -42,8 +42,7 @@ In the MAC1 search bar look up the Terminal application and enter "Ping 192.168.
 ### Set up Network Web Server Requirements
 - For MAC1, open the MAMP applications folder, select Nginx as the Web server. Now go into preferences and select Ports then edit both the Nginx Port and Apache Port to 80 then click OK. Changing the Nginx port is the only one truly needed but just to avoid any randome issues the Apache should also be changed. Then start the web server by clicking the start button. It may already say stop in that area which means it is already running. Just to be sure, click Stop then Start again.
 - Now we will create an index.html in the directory of our operating system. Since macOS is our operating system we will go into Applications, click MAMP, click htdocs options, then index.html.
-- Next, open the TextEdit application or any code editor and select that same index.html files and input "Welcome to Capstone Consulting".
-- Now, in System Settings, go to Network and in the configuration details for the LAN, go to DNS servers and in.
+- Next, open the TextEdit application or any code editor and select that same index.html file and input "Welcome to Capstone Consulting". This will allow for our web page created using the MAMP index.html to display that message.
 - This process has turned our MAC1 device into a local web server that hosts a webpage with the message "Welcome to Capstone Consulting". 
 - Now any device on our LAN can view this page by entering http://192.168.0.2 (our IP address) into their browser.
 - To test this, MAC2 will search http://192.168.0.2 into their browser to ensure the message shows up.
@@ -53,14 +52,15 @@ In the MAC1 search bar look up the Terminal application and enter "Ping 192.168.
 - A Domaine Name System (DNS) server translates domain names into IP addresses which will allow users to search a domain instead of searching http://192.168.0.2.
 - The MAC2 will act as our designated DNS server and will open and start the NAMO application.
 - Next, create a new Host record by clicking the + to add a new Host name and enter capstoneconsulting.com.
-- Here, set the IP address to `192.168.0.3` since this is the IP address of MAC2 which is designated as the DNS server and hit save.
-- This will esnure any requestions to our new domain will be forwarded to the correct device.
-- Now go into Web server and change setting to put in DNS IP
+- Here, assign the IP address to the MAMP server `192.168.0.2` since this is the IP address of MAC1 web server that is used to reach the web page. The DNS server will resolve any requests for capstoneconsulting.com by sendng them to that IP
+- This will ensure any requestions to our new domain will be forwarded to the correct device.
+- Now, in MAC1 web server device System Settings, go to Network and in the configuration details for the LAN, go to DNS servers and input the MAC2 IP address `192.168.0.3`.
+- This ensures that when requests for capstoneconsulting.com are made, it will go thrugh the DNS server we created using NAMO. Then the DNS server will translate the domain name into the MAMP web server's IP address which direct the browser to the webpage hosted on that IP address and device.
 
 ### 11. Connect the switches to router using ethernat cables
 - Download the application "driver".
 - Turn on physically the router.
-- Adding a router to connect the two seperate local area networks will allow them to be able to communicate with each other and share data.
+- Adding a router to connect the two seperate local area networks will allow them to be able to communicate with each other and share data, creating a Wide Area Network (WAN).
 - To enable the router to do its job, both switches must be connected to the router using ethernet cables.
 - Then connect a serial console cable from the router to the MAC2. 
 
