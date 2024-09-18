@@ -47,6 +47,8 @@
 - Now any device on our LAN can view this page by entering http://192.168.0.2 (our IP address) into their browser.
 - To test this, MAC2 will search http://192.168.0.2 into their browser to ensure the message shows up.
 
+<img width="585" alt="Screenshot 2024-09-17 at 9 19 21 PM" src="https://github.com/user-attachments/assets/c577f82d-10dc-4112-9da2-ce036af9376f">
+
 ### 7. Set up the Network DNS Server Requirments 
 - Since the web server has created that webpage but the only way to access it is through searching an IP, a tool is now needed in order to make this procces more user-friendly.
 - A Domaine Name System (DNS) server translates domain names into IP addresses which will allow users to search a domain instead of searching http://192.168.0.2.
