@@ -13,13 +13,13 @@
 
 ### 1. Chose the software and hardware
 - We will need two laptops, a switch, a router, and ethernet cables for the LAN this guide will take you through.
-- There will also be another LAN that was set up similar to ours,
+- There will also be another LAN that was set up similar to ours.
 - If you wanted to connect wireless devices to the network, it would also be needed to have a wireless access point (WAP) and another ethernet cable since it would need to be connected to a switch.
 - This set up will require two Apple Mac computers and the software MAMP, NAMO, TextEdit and have access to the macOS operating system Terminal. 
 
 ### 2. Assign LAN IP addresses
-  - The LAN that I will describe the set up for will use the IP address range of `192.168.0.0/26` which is Class C since it supports a smaller network and that is all we need for this set up. A subnetwork (subnet) defines the specicifc segment of our network and gives us a ranage of 64 IP addresses. The number 64 comes from an IPv4 IP address which is 32 bits long and the /26 represents bits are reserved for the network portion so the leftover 6 bits available are used for available host addresses (32-26=6). The number of available IP addresses for hosts is determined by the 6 bits which we take the number two and hold it to the 6th power and so 2^6 = 64 addresses in total. The subnet mask is `255.255.255.192` for this IP address since this is how the binary form of the subnet translates into decimal form. The first usable address is `192.168.0.1` and is reserved as our default gateway which is for the device that acts as an acceess point for a network to communicate with devices or networks outside of its own LAN which in our case will be a router. All devices on the LAN will need to have this default gateway set into its configuration.
-  - There is a second LAN will be using the IP address range of `176.16.0.0/24` is a Class B address since it supports a larger network. Our subnet gives us a range of 256 usabke IP addresses since we take the 32-24=8 bits usable for hosts addresses then 2^8=256. Our subnet mask is `255.255.255.0` because this is the decimal from of the /24 subnet. The default gateway IP will be 176.16.0.1 which will be input into router and all devices on the LAN.
+  - The LAN that I will describe the set up for will use the IP address range of `192.168.0.0/26` which is Class C since it supports a smaller network and that is all we need for this set up. A subnetwork (subnet) defines the specicifc segment of our network and gives us a ranage of 64 IP addresses. The number 64 comes from an IPv4 IP address which is 32 bits long and the /26 represents bits are reserved for the network portion so the leftover 6 bits available are used for available host addresses (32-26=6). The number of available IP addresses for hosts is determined by the 6 bits which we take the number two and hold it to the 6th power and so 2^6 = 64 addresses in total but then we subtract the reserved network and broadcast address. The subnet mask is `255.255.255.192` for this IP address since this is how the binary form of the subnet translates into decimal form. The first usable address is `192.168.0.1` and is reserved as our default gateway which is for the device that acts as an acceess point for a network to communicate with devices or networks outside of its own LAN which in our case will be a router. All devices on the LAN will need to have this default gateway set into its configuration.
+  - There is a second LAN will be using the IP address range of `176.16.0.0/24` is a Class B address since it supports a larger network. Our subnet gives us a range of 256 usable IP addresses since we take the 32-24=8 bits usable for hosts addresses then 2^8=256 but then we subtract the network and broadcast IP to have 254. Our subnet mask is `255.255.255.0` because this is the decimal from of the /24 subnet. The default gateway IP will be `176.16.0.1` which will be configured into the router and all devices on the LAN.
  
 ### 3. Connect end devices to switch
 - We will have two MAC computers that we connect to the switch using ethernet cables in ports next to each other.
@@ -32,13 +32,13 @@
 - The second device we will call MAC2 and will act as our DNS server later on. Go to System Settings, then Network, then "Configure IPv4" and select "Manually" and input the IP address `192.168.0.3` and enter the Subnet Mask `255.255.255.0`. In the "Router" space, enter the default gateway which is `192.168.0.1`.
 
 ### 5. Ensure both MACs can communicate with each other successfully
-- In the MAC1 search bar look up the Terminal application and enter "ping 192.168.0.3" and in the Terminal application for MAC2, enter "ping 192.168.0.2". For this to be successful it will say there was a Reply from the IP address and a 0% loss. If the Reply from IP address message will not stop hit control then c buttons on keyboard.
+- In the MAC1 search bar look up the Terminal application and enter "ping 192.168.0.3" and in the Terminal application for MAC2, enter "ping 192.168.0.2". For this to be successful it will say there was a Reply from the IP address and a 0% loss. If the Reply from IP address message will not stop hit control button then the c button on keyboard.
 
 <img width="31" alt="Screenshot 2024-09-16 at 6 17 27 PM" src="https://github.com/user-attachments/assets/fd743e3d-004a-4050-b3a7-d0cda428e6a0">
 <img width="272" alt="Screenshot 2024-09-16 at 6 17 38 PM" src="https://github.com/user-attachments/assets/be04d64c-4b4e-4fc3-9b89-0bcb4dc56d33">
 
 ### 6. Set up network web server requirements
-- A web server stores and provides website content when requested by browsers. HTTPS is Hypertext Transfer Protocal Secure which is used for transmitting data such as web pages between client and server is a secure manner. MAC1 will be the web server that serves website content when a browser requests HTTP/HTTPS content. 
+- A web server stores and provides website content when requested by browsers. HTTPS is Hypertext Transfer Protocal Secure which is used for transmitting data such as web pages between client and server in a secure manner. MAC1 will be the web server that serves website content when a browser requests HTTP/HTTPS content. 
 - For MAC1, open the MAMP applications folder, select Nginx as the web server. Now go into preferences and select Ports then edit both the Nginx Port and Apache Port to 80 then click OK. Changing the Nginx port is the only one truly needed but just to avoid any randome issues the Apache should also be changed. Then start the web server by clicking the start button. It may already say stop in that area which means it is already running. Just to be sure, click Stop then Start again.
 - Now we will create an index.html in the directory of our operating system. Since macOS is our operating system we will go into Applications, click MAMP, click htdocs option, then index.html.
 - Next, open the TextEdit application or any code editor and select that same index.html file and input "Welcome to Capstone Consulting". This will allow for our web page created using the MAMP index.html to display that message.
@@ -64,36 +64,37 @@
 - Turn on the physical router.
 - Adding a router to connect the two seperate local area networks will allow them to be able to communicate with each other and share data, creating a Wide Area Network (WAN).
 - To enable the router to do its job, both switches must be connected to the router using ethernet cables.
+- Make sure each switch has a designated connection point, try to use g0/0 for MAC1 and g0/1 for MAC2 to keep things easy to keep track of.
 - Then connect a serial console cable from the router to the MAC2. 
 
 ### 9. Configure IPs on a router and turn port status on
 - Configuring the IP addresses on a router to the default gatway of each LAN is imperative for network communication.
-- There will be two addresses input and the first IP address will be 192.168.0.1 with the subnet mask 255.255.255.192 which is the default gateway of out first LAN and the next IP address will be 172.16.0.1 with the subnet mask 255.255.0.0 which is the default gateway of our second LAN.
+- There will be two addresses input and the first IP address will be 192.168.0.1 with the subnet mask 255.255.255.192 which is the default gateway of out first LAN and the next IP address will be 172.16.0.1 with the subnet mask 255.255.255.0 which is the default gateway of our second LAN.
 - Now that MAC2 has the serial console cable plugged in, it can configure the IPs and turn the port status. Open Terminal to type these commands but do not include the quote marks in the terminal code, it is there to seperate code from explanation.
 - Type "router enable" to enter EXEC mode which allows changes to be made. The first thing that should now start popping up is Router#. 
-- Type after Router# "configure terminal", hit enter
-- Then enter "hostname router01"
-- Now "interface gigabitEthernet 0/0"
-- Then enter "ip address 192.168.0.1 255.255.255.192"
+- Type after Router# "configure terminal", hit enter.
+- Then enter "hostname router01".
+- Now "interface gigabitEthernet 0/0".
+- Then enter "ip address 192.168.0.1 255.255.255.192".
 - Next "description ##to switch 01##", enter. This is to describe the connection we are creating from router to switch.
 - Then type "no shutdown". This is impertive for turning the port status ON.
-- Now exit this by typing "exit"
+- Now exit by typing "exit".
 - Then type "wr" to write the configuration into memory.
 - To confirm the configuration was permanantly saved, type and enter "show startup-config" which should reveal what has been configured so far.
 - Now we will do the same process for the other LAN's IP address but now using shortcuts.
-- Tyoe "config t", which is a shortcut to what we typed earlier
-- Now enter "int g0/1"
-- "ip add 172.16.0.1 255.255.0.0"
-- "description ##switch 01"
-- "no shutdown"
-- Then enter "exit" and then "wr" to write it into memory
-- To check that our IP addresses have been configured, type and enter "show ip interface brief" and it should look similar to this image but the numbers should be 0/0 and 0/1 instead of 0/0/0 and 0/0/1"
+- Tyoe "config t", which is a shortcut to what we typed earlier.
+- Now enter "int g0/1".
+- "ip add 172.16.0.1 255.255.255.0".
+- "description ##switch 01".
+- "no shutdown".
+- Then enter "exit" and then "wr" to write it into memory.
+- To check that our IP addresses have been configured, type and enter "show ip interface brief" and it should look similar to this image but the numbers should be 0/0 and 0/1 instead of 0/0/0 and 0/0/1".
 
   <img width="390" alt="Screenshot 2024-09-17 at 10 54 34 AM" src="https://github.com/user-attachments/assets/34ca4122-ea6a-4e2d-a207-d0fbdec0164e">
 
 ### 10. Ping the other LAN we are connected to throught the router
 - Since our router is set up with both LAN default gateways, we can ping the other LAN.
-- In terminal, type "172.16.0.2" which is the IP addresses of the other LAN devices.
+- In terminal, type "172.16.0.2" which is the IP addresses of the other LAN devices and they will do the same.
 - If the ping is successful, the router configuration was successful.
 
 # FAQ
@@ -121,3 +122,7 @@
 - Make sure that the web server device has the DNS server configured in their system settings. Their should be only one server under DNS Servers that holds the IP address of the MAC2 which is the designated DNS server. 
 
 # Retrospective
+This project allowed me to greatly expand my knowledge on networks. Before this process, I would've never been able to explain why computers are assigned a specific IP address or why the first available one is reserved for default gateway. Overall, I had no information on how local area networks worked even though I have been the one to order and install my wifi for the past 3 years. The process of building a network through packet tracer and then recounting the physical building process has allowed me to now explain the whole process and understand the moving parts and how they come together. 
+	My biggest struggles stemmed from understanding how to design and configure the networks especially when it came to understanding the difference between subnet and subnet mask and how they relate to the network configuration. I had to understand how to calculate the number of usable IP addresses and understand the details of the subnetwork. I went through the process of 32(IPv4 address) -26(/26 subnetwork) to get 6 and then take 2 and raise it to the 6th power for usable host IPs. I also had issues understanding that the default gateway is more than just the first IP available in a network that we put into the router which makes it the default gateway. I understand now that it is the hardware that is needed for a local network to access the rest of the internet and devices on other networks. In our case, this was the router and the IP addresses come into play when we configure the router to hold the first available IP address in the network which is what we reserve for the default gateway. The default gateway is so important because it passes information when a device does not know where the destination is. 
+	Another big issue I encountered was understanding how to enable port status on the router to be on and configuring the IP addresses. I had to go through the slides and remember how we did it in class. I connected my mac to the router using a serial console cable and used Terminal to be able to turn the port status on by enabling editing and configuring the terminal. Before this physical lab, I had no idea it would be possible to configure a router through a macbook using Terminal.
+	The process of remembering and walking myself through what we did in class to set up and configure the DNS and Web Server physically actually allowed me to understand what the different components do. I was confused how the DNS server would send the requests for the domain to the web server. I then remembered that the web page is set up with the web server's IP address and when we create the domain in NAMO we link the web server's IP address so that the DNS server will send the request to the correct server. The web server device also has the DNS server’s IP address configured in its DNS server location. This felt like researching my memory and the class slides combined in order to understand that when there is a request for the domain name in a web browser, the browser needs to find the IP address associated with that website name. Then the browser checks its local cache to see if it has resolved that domain name before and has the IP address stored. This is why web pages you frequently visit load quicker than new ones. If the IP address is not in the local cache, the DNS server is requested which will find the correct IP address to connect to the website which will allow the webpage to load. In the future, I will definitely go through a systematic approach to configuration. Taking detailed notes in class while we do activities and having notes on troubleshooting with me is also something I will change. I definitely used to rely too much on my memory without taking the time to study terms and processes.
