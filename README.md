@@ -60,6 +60,8 @@
 - Now, in MAC1 web server device System Settings, go to Network and in the configuration details for the LAN, go to DNS servers and delete anything currently there and input the MAC2 IP address `192.168.0.3`.
 - This ensures that when requests for capstoneconsulting.com are made, it will go thrugh the DNS server created using NAMO. Then the DNS server will translate the domain name into the MAMP web server's IP address which will direct the browser to the webpage hosted on that IP address.
 
+  <img width="428" alt="Screenshot 2024-09-19 at 11 26 23 AM" src="https://github.com/user-attachments/assets/f794f782-2987-46db-b53a-1400f3049ced">
+
 ### 8. Connect the switches to router using ethernat cables
 - Turn on the physical router.
 - Adding a router to connect the two seperate local area networks will allow them to be able to communicate with each other and share data, creating a Wide Area Network (WAN).
